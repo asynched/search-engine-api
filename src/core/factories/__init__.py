@@ -1,6 +1,6 @@
 from typing import Protocol
-from ..query_parsers import QueryParser
-from ..query_services import QueryService
+from core.query_parsers import QueryParser
+from core.query_services import QueryService
 
 
 class SearchFactory(Protocol):
