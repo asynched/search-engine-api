@@ -3,5 +3,5 @@ from requests import Response
 
 
 class HTTPClient(Protocol):
-    def get(self, url: str) -> Response:
+    async def get(self, url: str) -> str:
         ...
