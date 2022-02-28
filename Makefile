@@ -1,4 +1,8 @@
-PYTHON := python
+PYTHON 	:= python
+PORT	:= 9091
 
 dev:
-	export FLASK_ENV=development && $(PYTHON) src/main.py
+	cd src && uvicorn main:app --reload --port=$(PORT)
+
+start:
+	cd src && uvicorn main:app --port=$(PORT)
