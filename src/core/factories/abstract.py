@@ -10,4 +10,4 @@ class Providers(Enum):
 
 class AbstractSearchFactory:
     def get_factory(provider: Providers) -> SearchFactory:
-        return GoogleSearchFactory()
+        return GoogleSearchFactory
