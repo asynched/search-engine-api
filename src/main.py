@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 
-from core.query_parsers import Parser
+from core.query_parsers import Parsers
 from core.factories.abstract import AbstractSearchFactory, Providers
 
 app = Flask(__name__)
@@ -16,7 +16,7 @@ def do_search():
     query_parser = search_factory.get_query_parser()
 
     data = query_service.regular(term)
-    parsed = query_parser.parse(data, Parser.REGULAR)
+    parsed = query_parser.parse(data, Parsers.REGULAR)
 
     return jsonify(parsed), 200
 
