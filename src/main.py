@@ -1,6 +1,7 @@
-from core.factories.google import GoogleSearchFactory
-from core.query_parsers import ParserType
 from flask import Flask, jsonify, request
+
+from core.query_parsers import Parser
+from core.factories.abstract import AbstractSearchFactory, Providers
 
 app = Flask(__name__)
 
@@ -9,11 +10,13 @@ app = Flask(__name__)
 def do_search():
     term = request.args.get("term")
 
-    query_service = GoogleSearchFactory.get_query_service()
-    query_parser = GoogleSearchFactory.get_query_parser()
+    search_factory = AbstractSearchFactory.get_factory(Providers.GOOGLE)
+
+    query_service = search_factory.get_query_service()
+    query_parser = search_factory.get_query_parser()
 
     data = query_service.regular(term)
-    parsed = query_parser.parse(data, ParserType.REGULAR)
+    parsed = query_parser.parse(data, Parser.REGULAR)
 
     return jsonify(parsed), 200
 

@@ -1,5 +1,5 @@
-from ..http_clients import HTTPClient
-from ..query_services import QueryService
+from core.http_clients import HTTPClient
+from core.query_services import QueryService
 
 
 class GoogleQueryService(QueryService):

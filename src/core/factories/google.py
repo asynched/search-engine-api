@@ -1,12 +1,12 @@
-from ..factories import SearchFactory
-from ..http_clients import HTTPClient
-from ..query_parsers import QueryParser
-from ..query_services import QueryService
+from core.factories import SearchFactory
+from core.http_clients import HTTPClient
+from core.query_parsers import QueryParser
+from core.query_services import QueryService
 
-from ..http_clients.requests import RequestsHTTPClient
+from core.http_clients.requests import RequestsHTTPClient
 
-from ..query_parsers.google import GoogleQueryParser
-from ..query_services.google import GoogleQueryService
+from core.query_parsers.google import GoogleQueryParser
+from core.query_services.google import GoogleQueryService
 
 
 class GoogleSearchFactory(SearchFactory):

@@ -1,11 +1,11 @@
-from . import QueryParser, ParserType
+from core.query_parsers import QueryParser, Parser
 from typing import List
 from bs4 import BeautifulSoup
 
 
 class GoogleQueryParser(QueryParser):
-    def parse(self, text: str, type: ParserType) -> List[dict]:
-        if type == ParserType.REGULAR:
+    def parse(self, text: str, type: Parser) -> List[dict]:
+        if type == Parser.REGULAR:
             return self.parse_regular(text)
         return []
 
